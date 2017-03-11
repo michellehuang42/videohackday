@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<!--     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
+    <!--
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Digital Market Place</title>
+<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <input type="text"> -->
+    <link href="css/bulma.css" rel="stylesheet">
+    <link rel="stylesheet" href="//assets-cdn.ziggeo.com/v1-stable/ziggeo.css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//assets-cdn.ziggeo.com/v1-stable/ziggeo.js"></script>
+    <script>ZiggeoApi.token = "f1af97ca0954c2822f344cd002577269";</script>
+    <script>ZiggeoApi.Config.cdn = true;</script>
+    <script>ZiggeoApi.Config.webrtc = true;</script>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <style type="text/css">
+      body {
+            overflow:hidden;
+            margin: 0px;
+         }
+      header {
+        padding: 20px;
+        border: 2px solid black;
+        margin: 20px;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 1;
+
+        background: white;
+      }
+    </style>
+  </head>
+
+  <body>
+<!--     <header>
+      <center>Digital Market Place </center>
+    </header> -->
+
+  <div class="tile is-ancestor; container is-fluid">
+
+    <div class="tile is-9 is-vertical is-parent">
+      <div class="tile is-child box; notification is-dark">
+        <p class="title">Live Stream</p>
+        <p class="subtitle">Description</p>
+        <figure class="image is-4by3">
+        <div class=id="jquery">
+          <ziggeo
+            ziggeo-perms="allowupload"
+            ziggeo-width=320
+            ziggeo-height=240
+          >
+          </ziggeo>
+          <script>
+          ZiggeoApi.Events.on("submitted", function (data) {
+            alert("The video with token " + data.video.token + " has been submitted!");
+          });
+          </script>
+          <script>
+          ZiggeoApi.Videos.index({}, {
+            success: function (args, videos) {
+            for (var i = 0; i < videos.length; ++i)
+            $("#jquery").append("<ziggeo ziggeo-video='" + videos[i].token + "'></ziggeo>");
+            }
+          });
+          </script>
+        </div> 
+      </div>
+    </div>  
+
+    <div class="tile is-3 is-vertical is-parent">
+      <div class="tile is-child box; notification is-primary">
+        <p class="title">Item 1</p>
+        <p class="subtitle">Description<br>Price</p>
+        <ul>
+          <li>Name</li>
+          <li>Price</li>
+          <li>Selling Points</li>
+        </ul>
+        <figure class="image is-4by3">
+        <a class="button is-black is-inverted is-outlined">
+          Buy
+        </a>
+      </div>
+
+      <section>
+        <div class="tile is-child box; notification is-info">
+          <p class="title">Rutgers Waterbottle</p>
+          <p class="subtitle">$15 | Sold by MD</p>
+          <a class="button is-black is-inverted is-outlined">
+            Go
+          </a>
+        </div>
+      </section>
+      <br/>
+      <section>
+        <div class="tile is-child box; notification is-warning">
+          <p class="title">Backpack</p>
+          <p class="subtitle">$25 | Sold by Jamie</p>
+          <a class="button is-black is-inverted is-outlined">
+            Go
+          </a>
+        </div>
+      </section>
+    </div>
+
+  </body>
+</html>
