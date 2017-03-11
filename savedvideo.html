@@ -18,6 +18,12 @@
     <input type="text"> -->
     <meta name="viewport" content="width=device-width, user-scalable=no" />
         <link href="css/bulma.css" rel="stylesheet">
+    <link rel="stylesheet" href="//assets-cdn.ziggeo.com/v1-stable/ziggeo.css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//assets-cdn.ziggeo.com/v1-stable/ziggeo.js"></script>
+    <script>ZiggeoApi.token = "f1af97ca0954c2822f344cd002577269";</script>
+    <script>ZiggeoApi.Config.cdn = true;</script>
+    <script>ZiggeoApi.Config.webrtc = true;</script>
     <style type="text/css">
       body {
             overflow:hidden;
@@ -52,7 +58,28 @@
       <div class="tile is-child box; notification is-dark">
         <p class="title">Laptop</p>
         <p class="subtitle">Sold by Michelle</p>
-        <figure class="image is-4by3">
+<!--         <figure class="image is-4by3"> -->
+          <ziggeo ziggeo-video="9e38949f8c78bea2a0df7e3d46ba2a15"></ziggeo>
+<!--           <ziggeo
+            ziggeo-perms="allowupload"
+            ziggeo-width=320
+            ziggeo-height=240
+          >
+          </ziggeo> -->
+<!--           <script>
+          ZiggeoApi.Events.on("submitted", function (data) {
+            alert("The video with token " + data.video.token + " has been submitted!");
+          });
+          </script> -->
+<!--           <script>
+          ZiggeoApi.Videos.index({}, {
+            success: function (args, videos) {
+            for (var i = 0; i < videos.length; ++i)
+            $("#jquery").append("<ziggeo ziggeo-video='" + videos[i].token + "'></ziggeo>");
+            }
+          });
+          </script> -->
+        
       </div>
     </div>  
     <div class="tile is-3 is-vertical is-parent">
@@ -64,7 +91,7 @@
           <li>2 years old</li>
           <li>Good condition</li>
         </ul>
-        <figure class="image is-4by3">
+<!--         <figure class="image is-4by3"> -->
         <a class="button is-black is-inverted is-outlined">
           Buy
         </a>
@@ -78,6 +105,7 @@
           </a>
         </div>
       </section>
+      <br/>
       <section>
         <div class="tile is-child box; notification is-warning">
           <p class="title">Backpack</p>
